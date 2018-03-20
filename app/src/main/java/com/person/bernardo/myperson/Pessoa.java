@@ -92,6 +92,13 @@ public abstract class Pessoa {
         return (mes - 1);
     }
 
+    public static int getYear(String aniversario) {
+        // XX/XX/XXXX
+        int year = Integer.parseInt(aniversario.substring(6, 9));
+        // decrementando
+        return (year);
+    }
+
     public static int getAno() {
         return ano;
     }

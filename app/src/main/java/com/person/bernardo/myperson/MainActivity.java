@@ -5,7 +5,7 @@
  * LDDM
  * <p>
  * Autor: Bernardo Morais Alfredo  Matricula: 565524
- * Versao:  0.05                Data: 17/03/2018
+ * Versao:  0.06                Data: 18/03/2018
  * <p>
  * Dados:
  * - Ler dados de uma pessoa e criar evento no calendario.
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, mapUri);
         mapIntent.setPackage("com.google.android.apps.maps");
 
-        // iniciando activity
+        // start activity
         startActivity(mapIntent);
     }// end mapa( )
 
@@ -240,28 +240,31 @@ public class MainActivity extends AppCompatActivity {
      * Metodo para adicionar data de aniversário na agenda.
      */
     public void aniversario(String nome, String nasc) {
-        // definir dados
-        int dia, mes;
+        // set data
+        int dia, mes, year;
         Intent intent = new Intent(Intent.ACTION_INSERT);
 
-        // pegando dia
+        // get day
         dia = Pessoa.getDia(nasc);
 
-        // pegando mes
+        // get month
         mes = Pessoa.getMes(nasc);
 
-        // adicionando setando a data
+        // get year
+        year = Pessoa.getYear(nasc);
+
+        // set date
         intent.setData(CalendarContract.Events.CONTENT_URI);
 
-        // adicionando titulo do evento
+        // set event title
         intent.putExtra(CalendarContract.Events.TITLE, "Aniversário de " + nome);
 
-        // adicionando que o evento dura o dia todo
+        // set event time
         intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
 
-        // pega o dia que comeca
+        // set start day
         Calendar startTime = Calendar.getInstance();
-        startTime.set(2017, mes, dia, 0, 0);
+        startTime.set(2018, mes, dia, 0, 0);
 
         intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTime.getTimeInMillis());
         intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, startTime.getTimeInMillis());
@@ -277,19 +280,19 @@ public class MainActivity extends AppCompatActivity {
      * @Param: -Numero Telefone
      */
     public void whatsapp(String number) {
-        // passa o numero do contato
+        // send contact number
         Uri uri = Uri.parse("smsto:" + number);
 
-        // criando a intent
+        // start intent
         Intent sendIntent = new Intent(Intent.ACTION_SENDTO, uri);
 
-        // tipo texto
+        // text type
         sendIntent.setPackage("text/plain");
 
-        // adiciona o package do whatsapp
+        // add whatsapp package
         sendIntent.setPackage("com.whatsapp");
 
-        // iniciando activity
+        // start activity
         startActivity(Intent.createChooser(sendIntent, ""));
     }// end whatsapp( )
 
