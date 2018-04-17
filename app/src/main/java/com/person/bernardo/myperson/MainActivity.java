@@ -296,4 +296,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(sendIntent, ""));
     }// end whatsapp( )
 
+    /**
+     * Metodo que vai para a segunda tela.
+     * @param view
+     */
+    /*public void segundaTela(View view)    {
+        // criando a intent para a segunda tela
+        Intent secondScreen = new Intent(this, MainExtras.class);
+        // iniciando
+        startActivity(secondScreen);
+    }// end segundaTela( )*/
+
 }// end class
