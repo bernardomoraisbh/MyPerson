@@ -1,17 +1,16 @@
 package com.person.bernardo.myperson;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewActivity extends AppCompatActivity {
+public class RecyclerViewActivity extends AppCompatActivity implements ItemClickListener {
 
     PessoaAdapter adapter;
     Pessoa contato;
@@ -24,10 +23,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view_activity);
-
-
         Intent intent = getIntent();
-
         contato = (Pessoa) intent.getSerializableExtra("pessoa2");
 
         ArrayList<String> animalNames = new ArrayList<>();
@@ -44,12 +40,14 @@ public class RecyclerViewActivity extends AppCompatActivity {
         // set up the RecyclerView
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.listView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Error in the following line
         adapter = new PessoaAdapter(this, animalNames);
-        adapter.setClickListener((PessoaAdapter.ItemClickListener) this);
+        adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
     public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+        // Do something based on the item click in the RecyclerView
     }
 }

@@ -1,9 +1,5 @@
 package com.person.bernardo.myperson;
 
-/**
- * Created by Bernardo on 22/04/2018.
- */
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -55,11 +51,6 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.ViewHolder
         this.mClickListener = itemClickListener;
     }
 
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
-    }
-
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
@@ -72,7 +63,8 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.ViewHolder
 
         @Override
         public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            if (mClickListener != null)
+                mClickListener.onItemClick(view, getAdapterPosition());
         }
     }
 }

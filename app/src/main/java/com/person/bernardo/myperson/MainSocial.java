@@ -1,10 +1,8 @@
 package com.person.bernardo.myperson;
 
 import android.content.Intent;
-import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,18 +17,10 @@ public class MainSocial extends AppCompatActivity {
         setContentView(R.layout.activity_main_social);
 
         Intent intent = getIntent();
-
         receivePessoa = (Pessoa) intent.getSerializableExtra("proxPessoa");
-
         pegarDados();
     }
 
-    /**
-     * Metodo para converter EditText em String.
-     *
-     * @param txt
-     * @return
-     */
     public String editTextToString(EditText txt) {
         // definir dados
         String resp = "";
@@ -42,13 +32,6 @@ public class MainSocial extends AppCompatActivity {
         return (resp);
     }// end converteTexto( )
 
-
-    /**
-     * Metodo para salvar os dados de cada rede no contato, se null = "".
-     *
-     * @param
-     * @return
-     */
     public void pegarDados() {
 
         Button save = findViewById(R.id.save);
@@ -83,11 +66,6 @@ public class MainSocial extends AppCompatActivity {
         });
     }
 
-    /**
-     * Metodo que vai para a segunda tela.
-     *
-     * @param view
-     */
     public void terceiraTela(View view) {
         // criando a intent para a terceira tela com RecycleView
         Intent terceiraTela = new Intent(this, RecyclerViewActivity.class);
@@ -104,9 +82,7 @@ public class MainSocial extends AppCompatActivity {
         System.out.println(receivePessoa.getSpotify());
         System.out.println(receivePessoa.getYoutube());
 
-
         // iniciando
         startActivity(terceiraTela);
-    }// end terceiraTela( )
-
+    }
 }
