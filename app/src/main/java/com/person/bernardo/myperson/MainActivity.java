@@ -26,6 +26,7 @@
  */
 package com.person.bernardo.myperson;
 
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Context;
@@ -39,11 +40,14 @@ import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
+    static Pessoa contato = new Pessoa();
+    EditText nome, nasc, tel, email, endereco;
     // Variavel para utilizar o vibrador
     private Vibrator vib;
 
@@ -56,15 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Metodo para converter EditText em String.
-     *
-     * @param texto
+     * @param txt
      * @return
      */
-    public String converteTexto(EditText texto) {
+    public String converteTexto(EditText txt) {
         // definir dados
-        String result = texto.getText().toString();
-
-        return (result);
+        String resp = txt.getText().toString();
+        return (resp);
     }// end converteTexto( )
 
     /**
@@ -74,18 +76,30 @@ public class MainActivity extends AppCompatActivity {
         // definindo botoes
         Button addContato = findViewById(R.id.addContato),
                 salvaAniv = findViewById(R.id.anivesario),
-                envWhatsapp = findViewById(R.id.whatsapp);
+                envWhatsapp = findViewById(R.id.whatsapp),
+                save = findViewById(R.id.saveButton);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nome = findViewById(R.id.nome);
+                nasc = findViewById(R.id.nascimento);
+                tel = findViewById(R.id.phone);
+                email = findViewById(R.id.email);
+                endereco = findViewById(R.id.endereco);
+            }// end onClick( )
+        });
 
         // definindo os editText
-        final EditText nome = findViewById(R.id.nome),
-                nasc = findViewById(R.id.nascimento),
-                tel = findViewById(R.id.phone),
-                email = findViewById(R.id.email),
+        nome = findViewById(R.id.nome);
+        nasc = findViewById(R.id.nascimento);
+        tel = findViewById(R.id.phone);
+        email = findViewById(R.id.email);
                 endereco = findViewById(R.id.endereco);
 
-        final TextInputLayout nomeInput = findViewById(R.id.input_layout_name),
-                nascInput = findViewById(R.id.input_layout_nasc),
-                telInput = findViewById(R.id.input_layout_tel),
+        final TextInputLayout nomeInput = findViewById(R.id.input_layout_nome),
+                nascInput = findViewById(R.id.input_layout_data),
+                telInput = findViewById(R.id.input_layout_telefone),
                 emailInput = findViewById(R.id.input_layout_email),
                 endInput = findViewById(R.id.input_layout_endereco);
 
@@ -129,12 +143,16 @@ public class MainActivity extends AppCompatActivity {
                     endInput.setError(getResources().getString(R.string.erro_EditText_Endereco));
                 }// end if
 
-                //Se os campos estiverem vazios:
+                //Se os campos nao estiverem vazios:
                 if (!emptyNome && !emptyEmail && !emptytel && !emptyAddress) {
                     nomeInput.setErrorEnabled(false);
                     emailInput.setErrorEnabled(false);
                     telInput.setErrorEnabled(false);
                     endInput.setErrorEnabled(false);
+                    contato.setNome(converteTexto(nome));
+                    contato.setEmail((converteTexto(email)));
+                    contato.setTelefone((converteTexto(tel)));
+                    contato.setEndereco((converteTexto(endereco)));
                     addContact(converteTexto(nome), converteTexto(email), converteTexto(tel), converteTexto(endereco));
                 }// end if
             }// end onClick( )
@@ -200,6 +218,8 @@ public class MainActivity extends AppCompatActivity {
      * -End = endereco contato
      */
     public void addContact(String nome, String email, String tel, String end) {
+        //define o contato
+
         // set intent
         Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
         intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
@@ -224,34 +244,27 @@ public class MainActivity extends AppCompatActivity {
     }// end addContact( )
 
     /**
-     * Metodo que chama a intent do Mapa.
-     */
-    public void mapa(String address) {
-        // intent do google maps
-        Uri mapUri = Uri.parse("geo:0,0?q=" + Uri.encode(address));
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, mapUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-
-        // start activity
-        startActivity(mapIntent);
-    }// end mapa( )
-
-    /**
      * Metodo para adicionar data de aniversário na agenda.
      */
     public void aniversario(String nome, String nasc) {
+
         // set data
         int dia, mes, year;
         Intent intent = new Intent(Intent.ACTION_INSERT);
 
+        contato.setAniversario(nasc);
+
         // get day
         dia = Pessoa.getDia(nasc);
+        contato.setDia(dia);
 
         // get month
         mes = Pessoa.getMes(nasc);
+        contato.setMes(mes);
 
         // get year
         year = Pessoa.getYear(nasc);
+        contato.setAno(year);
 
         // set date
         intent.setData(CalendarContract.Events.CONTENT_URI);
@@ -280,6 +293,8 @@ public class MainActivity extends AppCompatActivity {
      * @Param: -Numero Telefone
      */
     public void whatsapp(String number) {
+        contato.setTelefone(number);
+
         // send contact number
         Uri uri = Uri.parse("smsto:" + number);
 
@@ -300,11 +315,21 @@ public class MainActivity extends AppCompatActivity {
      * Metodo que vai para a segunda tela.
      * @param view
      */
-    /*public void segundaTela(View view)    {
+    public void segundaTela(View view) {
         // criando a intent para a segunda tela
-        Intent secondScreen = new Intent(this, MainExtras.class);
+        Intent secondScreen = new Intent(this, MainSocial.class);
+        Pessoa proxPessoa = new Pessoa();
+
+        proxPessoa.setNome(nome.getText().toString());
+        proxPessoa.setTelefone(tel.getText().toString());
+        proxPessoa.setEmail(email.getText().toString());
+        proxPessoa.setEndereco(endereco.getText().toString());
+        proxPessoa.setAniversario(nasc.getText().toString());
+
+        secondScreen.putExtra("proxPessoa", proxPessoa);
+
         // iniciando
         startActivity(secondScreen);
-    }// end segundaTela( )*/
+    }// end segundaTela( )
 
 }// end class

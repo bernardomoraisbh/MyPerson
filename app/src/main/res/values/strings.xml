@@ -115,4 +115,10 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="hint_face">Facebook</string>
+    <string name="hint_spotify">Spotify</string>
+    <string name="hint_yout">Youtube</string>
+    <string name="hint_link">Linked In</string>
+    <string name="hint_insta">Instagram</string>
+    <string name="hint_twitter">Twitter</string>
 </resources>

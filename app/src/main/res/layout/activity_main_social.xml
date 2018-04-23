@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.person.bernardo.myperson.MainSocial"
+    tools:layout_editor_absoluteY="81dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_facebook"
+        android:layout_width="222dp"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/MyAppearance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.034">
+
+        <EditText
+            android:id="@+id/facebook"
+            android:layout_width="179dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/hint_face"
+            android:inputType="textUri"
+            android:singleLine="false"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorRed"
+            android:textSize="14sp"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="37dp"
+            tools:layout_editor_absoluteY="52dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_instagram"
+        android:layout_width="222dp"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/MyAppearance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.182">
+
+        <EditText
+            android:id="@+id/instagram"
+            android:layout_width="179dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/hint_insta"
+            android:inputType="textUri"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorRed"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="37dp"
+            tools:layout_editor_absoluteY="118dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_linkedin"
+        android:layout_width="222dp"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/MyAppearance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.334">
+
+        <EditText
+            android:id="@+id/linkedin"
+            android:layout_width="179dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/hint_link"
+            android:inputType="textUri"
+            android:singleLine="false"
+            android:textAppearance="@style/MyAppearanceBlack"
+            android:textColorHint="@color/colorRed"
+            tools:layout_editor_absoluteX="37dp"
+            tools:layout_editor_absoluteY="176dp" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_spotify"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/MyAppearance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.471">
+
+        <EditText
+            android:id="@+id/spotify"
+            android:layout_width="179dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/hint_spotify"
+            android:inputType="textUri"
+            android:textAppearance="@style/MyAppearanceBlack"
+            android:textColorHint="@color/colorRed"
+            tools:layout_editor_absoluteX="37dp"
+            tools:layout_editor_absoluteY="235dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_twitter"
+        android:layout_width="222dp"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/MyAppearance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61">
+
+        <EditText
+            android:id="@+id/twitter"
+            android:layout_width="179dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/hint_twitter"
+            android:inputType="textUri"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorRed"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="37dp"
+            tools:layout_editor_absoluteY="288dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_youtube"
+        android:layout_width="222dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:hintTextAppearance="@style/MyAppearance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745">
+
+        <EditText
+            android:id="@+id/youtube"
+            android:layout_width="179dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/hint_yout"
+            android:inputType="textUri"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorRed"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="37dp"
+            tools:layout_editor_absoluteY="288dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/input_layout_facebook"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/facebook" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/input_layout_instagram"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/instagram" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/input_layout_linkedin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:srcCompat="@drawable/linkedin" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toStartOf="@+id/input_layout_spotify"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/spotify" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/input_layout_twitter"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/twitter" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/input_layout_youtube"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.751"
+        app:srcCompat="@drawable/youtube" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Salvar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_youtube" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="terceiraTela"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.631"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/save"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.995"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+
+</android.support.constraint.ConstraintLayout>
