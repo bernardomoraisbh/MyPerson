@@ -1,46 +1,18 @@
-/**
- * ---------------------------------------------- Documentacao preliminar
- * Pontificia Universidade Catolica de Minas Gerais
- * Curso de Ciencia da Computacao
- * LDDM
- * <p>
- * Autor: Bernardo Morais Alfredo  Matricula: 565524
- * Versao:  0.06                Data: 18/03/2018
- * <p>
- * Dados:
- * - Ler dados de uma pessoa e criar evento no calendario.
- * <p>
- * Para funcionar:
- * <p>
- * Insira (nas dependencies de build.gradle (Module:App) :
- * compile fileTree(dir: 'libs', include: ['*.jar'])
- * compile 'com.android.support:design:22.2.0'
- * compile 'com.android.support:appcompat-v7:22.2.0'
- * <p>
- * Resultados:
- * <p>
- * -Funciona
- * <p>
- * Feito com ajuda de:
- * Luiz Braganca
- */
 package com.person.bernardo.myperson;
 
-import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
-import android.text.TextUtils;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import java.util.Calendar;
 
@@ -48,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     static Pessoa contato = new Pessoa();
     EditText nome, nasc, tel, email, endereco;
-    // Variavel para utilizar o vibrador
+
     private Vibrator vib;
 
     @Override
@@ -58,20 +30,11 @@ public class MainActivity extends AppCompatActivity {
         setBotoes();
     }
 
-    /**
-     * Metodo para converter EditText em String.
-     * @param txt
-     * @return
-     */
     public String converteTexto(EditText txt) {
-        // definir dados
         String resp = txt.getText().toString();
         return (resp);
-    }// end converteTexto( )
+    }
 
-    /**
-     * Metodo para verificar cada botao.
-     */
     private void setBotoes() {
         // definindo botoes
         Button addContato = findViewById(R.id.addContato),
@@ -95,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         nasc = findViewById(R.id.nascimento);
         tel = findViewById(R.id.phone);
         email = findViewById(R.id.email);
-                endereco = findViewById(R.id.endereco);
+        endereco = findViewById(R.id.endereco);
 
         final TextInputLayout nomeInput = findViewById(R.id.input_layout_nome),
                 nascInput = findViewById(R.id.input_layout_data),
@@ -207,16 +170,8 @@ public class MainActivity extends AppCompatActivity {
                 }// end if
             }// end onClick
         });
-    }// end setBotoes( )
+    }
 
-    /**
-     * Metodo addContact( ) - adicionar um contato.
-     *
-     * @Param: -Nome = nome contato
-     * -Email = email contato
-     * -Tel = Telefone contato
-     * -End = endereco contato
-     */
     public void addContact(String nome, String email, String tel, String end) {
         //define o contato
 
@@ -313,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Metodo que vai para a segunda tela.
+     *
      * @param view
      */
     public void segundaTela(View view) {
