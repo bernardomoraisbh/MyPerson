@@ -99,8 +99,8 @@ public class Pessoa implements Serializable {
         return endereco;
     }
 
-    public static void setEndereco(String endereco) {
-        Pessoa.endereco = endereco;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public static String getNome() {
@@ -117,14 +117,6 @@ public class Pessoa implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public static String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public static String getEmail() {
@@ -231,7 +223,7 @@ public class Pessoa implements Serializable {
         if (Instagram == null) {
             return "nada Instagram";
         } else {
-            return Youtube;
+            return Instagram;
         }
     }
 

@@ -70,18 +70,6 @@ public class MainSocial extends AppCompatActivity {
         // criando a intent para a terceira tela com RecycleView
         Intent terceiraTela = new Intent(this, RecyclerViewActivity.class);
         terceiraTela.putExtra("pessoa2", receivePessoa);
-
-        System.out.println(receivePessoa.getNome());
-        System.out.println(receivePessoa.getTelefone());
-        System.out.println(receivePessoa.getEmail());
-        System.out.println(receivePessoa.getEndereco());
-        System.out.println(receivePessoa.getFacebook());
-        System.out.println(receivePessoa.getInstagram());
-        System.out.println(receivePessoa.getLinkedIn());
-        System.out.println(receivePessoa.getTwitter());
-        System.out.println(receivePessoa.getSpotify());
-        System.out.println(receivePessoa.getYoutube());
-
         // iniciando
         startActivity(terceiraTela);
     }
